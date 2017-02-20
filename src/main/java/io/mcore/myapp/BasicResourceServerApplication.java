@@ -1,6 +1,8 @@
 package io.mcore.myapp;
 
 import java.security.Principal;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.boot.SpringApplication;
@@ -22,20 +24,23 @@ public class BasicResourceServerApplication {
 	}
 
 	@RequestMapping("/user")
-	public Principal user(Principal user) {
-		return user;
+	public Map<String, String> user(Principal user) {
+		Map<String, String> result = new HashMap<>();
+		result.put("username", user.getName());
+		result.put("image", "./mypicture.png"); //...
+		return result;
 	}
 
-	@RequestMapping("/data")
+	@RequestMapping("/only_for_admin")
 	@PreAuthorize("hasAuthority('ADMIN')")
-	public String readData1() {
-		return "read data " + UUID.randomUUID().toString();
+	public String onlyForAdmin() {
+		return "ADMIN data: " + UUID.randomUUID().toString();
 	}
 
-	@RequestMapping("/data1")
+	@RequestMapping("/only_scope_write")
 	@PreAuthorize("#oauth2.hasScope('write')")
 	public String readData2() {
-		return "read data " + UUID.randomUUID().toString();
+		return "write data:" + UUID.randomUUID().toString();
 	}
 
 }
