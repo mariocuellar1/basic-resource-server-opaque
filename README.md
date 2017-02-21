@@ -21,7 +21,7 @@ Before you run this server you need to configure and init your own Authorization
 
 1. Configure application (application.properties above)
 2. Start Resource Server [rigth-clic, run  :) ]
-5. Import postman project *OpaqueResourceServerTest.postman_collection.json* to postman
+3. Import postman project *OpaqueResourceServerTest.postman_collection.json* to postman
    * To test get my information (/user):
    ```
    Get a valid oAuth Token, you can use test "Token - password" maybe you have to adjust URI and/or authentication.
@@ -43,11 +43,11 @@ Before you run this server you need to configure and init your own Authorization
    
 And you Done !!!!
 
-Notes:
+### Notes:
 - I use postman to test 'cause it's what I usually do :) , if you want, modify this readme adding other ways, CURL, junit, simple java ó whatever.
 - Please feel free to add/modify/correct/update any part of this content as necessary
 
-Other Projects:
+### Other Projects:
 - [oAuth Server using oauth and opaque token](https://github.com/mariocuellar1/oauth-server-opaque)
 - [oAuth Server using JWT Token](https://github.com/mariocuellar1/oauth-server-jwt)
 - [Basic Resource Server validating JWT Token](https://github.com/mariocuellar1/basic-resource-server-jwt)
